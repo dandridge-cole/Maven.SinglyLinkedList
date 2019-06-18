@@ -9,6 +9,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+.idea
 
 # External tool builders
 .externalToolBuilders/
@@ -104,11 +105,4 @@ target/**/
 .project
 .classpath
 .settings
-.idea/compiler.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/modules.xml
-.idea/compiler.xml
+

@@ -3,23 +3,23 @@ package com.zipcodewilmington.singlylinkedlist;
 /**
  * Created by leon on 1/10/18.
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList <ObjectType>{
 
     private class Node{
-        private Object thePackage;
+        private ObjectType thePackage;
         private Node next;
 
         public Node(){
             this.thePackage=null;
-            this.next=this;
+            this.next=null;
         }
 
-        public Node(Object obj){
+        public Node(ObjectType obj){
             this.thePackage=obj;
-            this.next=this;
+            this.next=null;
         }
 
-        public Node(Object obj,Node next){
+        public Node(ObjectType obj,Node next){
             this.thePackage=obj;
             this.next=next;
         }
@@ -32,42 +32,49 @@ public class SinglyLinkedList {
             this.next = next;
         }
 
-        public Object getThePackage() {
+        public ObjectType getThePackage() {
             return thePackage;
         }
 
-        public void setThePackage(Object thePackage) {
+        public void setThePackage(ObjectType thePackage) {
             this.thePackage = thePackage;
         }
+    }
+
+    public Node getFirst() {
+        return first;
+    }
+
+    public void setFirst(Node first) {
+        this.first = first;
     }
 
     private Node first;
 
     public SinglyLinkedList(){
-        this.first=new Node();
-        this.first.next = this.first;
+        this.first=null;
     }
 
-    public SinglyLinkedList(Object obj){
+    public SinglyLinkedList(ObjectType obj){
         this.first=new Node(obj);
-        this.first.next = this.first;
+        this.first.next = null;
     }
 
-    public void add(Object obj){
-
-    }
-
-
-    public void remove(Object obj){
+    public void add(ObjectType obj){
 
     }
 
-    public Boolean contains(Object obj){
+
+    public void remove(ObjectType obj){
+
+    }
+
+    public Boolean contains(ObjectType obj){
 
         return false;
     }
 
-    public Integer find(Object obj){
+    public Integer find(ObjectType obj){
 
         return -1;
     }
@@ -82,7 +89,7 @@ public class SinglyLinkedList {
         return null;
     }
 
-    public SinglyLinkedList copy(){
+    public SinglyLinkedList<ObjectType> copy(){
 
         return null;
     }
@@ -96,9 +103,8 @@ public class SinglyLinkedList {
 
     }
 
-    public SinglyLinkedList slice(Integer start, Integer stop){
+    public SinglyLinkedList<ObjectType> slice(Integer start, Integer stop){
 
         return null;
     }
-
 }

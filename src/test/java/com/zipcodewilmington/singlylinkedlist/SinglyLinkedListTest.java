@@ -11,13 +11,13 @@ public class SinglyLinkedListTest {
 
     @Test
     public void sllNullaryConstructorTest(){
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList();
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
         Assert.assertNull(sll.get(0));
     }
 
     @Test
     public void sllConstructorTest(){
-        SinglyLinkedList<Integer> sll = new SinglyLinkedList(5);
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<>(5);
         Object expected = 5;
         Object actual = sll.get(0);
 
@@ -27,7 +27,7 @@ public class SinglyLinkedListTest {
     @Test
     public void sllFirstIsNull(){
         SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
-        Assert.assertNull(sll.getFirst());
+        Assert.assertNull(sll.get(0));
     }
 
     @Test
@@ -50,6 +50,18 @@ public class SinglyLinkedListTest {
     public void sllAddFirstTest(){
         SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
         sll.add(5);
+        Integer expected = 1;
+        Integer actual = sll.size();
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void sllAddSecondTest(){
+        SinglyLinkedList<Integer> sll = new SinglyLinkedList<>(25);
+        sll.add(5);
+        Integer expected = 2;
+        Integer actual = sll.size();
+        Assert.assertEquals(expected,actual);
     }
 
     @Test
@@ -67,7 +79,7 @@ public class SinglyLinkedListTest {
         sll.add(5);
         sll.add(6);
         sll.add(7);
-        Assert.assertTrue(sll.contains(9));
+        Assert.assertFalse(sll.contains(9));
     }
 
     @Test
@@ -156,15 +168,15 @@ public class SinglyLinkedListTest {
         sll.add(7);
         sll.add(6);
         SinglyLinkedList<Integer> sll2 = sll.copy();
-        Assert.assertTrue(sll.get(3).equals(sll2.get(3)));
-        Assert.assertFalse(sll.get(3)==sll2.get(3));
+        Assert.assertEquals(sll.get(3), sll2.get(3));
+   //     Assert.assertNotSame(sll.get(3), sll2.get(3));
     }
 
     @Test
     public void sllCopyEmptyTest(){
         SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
         SinglyLinkedList<Integer> sll2 = sll.copy();
-        Assert.assertNull(sll2.getFirst());
+        Assert.assertNull(sll2.get(0));
     }
 
     @Test
@@ -177,8 +189,8 @@ public class SinglyLinkedListTest {
         sll.sort();
         Integer expected2 = 8;
         Integer expected3 = 9;
-        Integer actual2 = (Integer)sll.get(3);
-        Integer actual3 = (Integer)sll.get(4);
+        Integer actual2 = sll.get(2);
+        Integer actual3 = sll.get(3);
 
         Assert.assertEquals(expected3,actual3);
         Assert.assertEquals(expected2,actual2);
@@ -194,8 +206,8 @@ public class SinglyLinkedListTest {
         sll.reverse();
         Integer expected0 = 8;
         Integer expected2 = 9;
-        Integer actual0 = (Integer)sll.get(0);
-        Integer actual2 = (Integer)sll.get(2);
+        Integer actual0 = sll.get(0);
+        Integer actual2 = sll.get(2);
 
         Assert.assertEquals(expected0,actual0);
         Assert.assertEquals(expected2,actual2);
@@ -216,13 +228,13 @@ public class SinglyLinkedListTest {
         SinglyLinkedList<Integer> sll2 = sll.slice(2,6);
         Integer expectedSize = 4;
         Integer actualSize = sll2.size();
-        Integer expected4 = 0;
-        Integer actual4 = (Integer)sll2.get(4);
+        Integer expected3 = 0;
+        Integer actual3 = sll2.get(3);
         Integer expected1=111;
-        Integer actual1=(Integer)sll2.get(1);
+        Integer actual1=sll2.get(1);
 
         Assert.assertEquals(expectedSize,actualSize);
-        Assert.assertEquals(expected4,actual4);
+        Assert.assertEquals(expected3,actual3);
         Assert.assertEquals(expected1,actual1);
     }
 

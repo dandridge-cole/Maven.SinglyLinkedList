@@ -170,19 +170,60 @@ public class SinglyLinkedListTest {
     @Test
     public void sllSortTest(){
         SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
-        Assert.assertTrue(false);
+        sll.add(3);
+        sll.add(9);
+        sll.add(3);
+        sll.add(8);
+        sll.sort();
+        Integer expected2 = 8;
+        Integer expected3 = 9;
+        Integer actual2 = (Integer)sll.get(3);
+        Integer actual3 = (Integer)sll.get(4);
+
+        Assert.assertEquals(expected3,actual3);
+        Assert.assertEquals(expected2,actual2);
     }
 
     @Test
     public void sllReverseTest(){
         SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
-        Assert.assertTrue(false);
+        sll.add(3);
+        sll.add(9);
+        sll.add(3);
+        sll.add(8);
+        sll.reverse();
+        Integer expected0 = 8;
+        Integer expected2 = 9;
+        Integer actual0 = (Integer)sll.get(0);
+        Integer actual2 = (Integer)sll.get(2);
+
+        Assert.assertEquals(expected0,actual0);
+        Assert.assertEquals(expected2,actual2);
     }
 
     @Test
     public void sllSliceTest(){
         SinglyLinkedList<Integer> sll = new SinglyLinkedList<>();
-        Assert.assertTrue(false);
+        sll.add(3);
+        sll.add(9);
+        sll.add(3);
+        sll.add(111);
+        sll.add(1);
+        sll.add(0);
+        sll.add(57);
+        sll.add(8);
+
+        SinglyLinkedList<Integer> sll2 = sll.slice(2,6);
+        Integer expectedSize = 4;
+        Integer actualSize = sll2.size();
+        Integer expected4 = 0;
+        Integer actual4 = (Integer)sll2.get(4);
+        Integer expected1=111;
+        Integer actual1=(Integer)sll2.get(1);
+
+        Assert.assertEquals(expectedSize,actualSize);
+        Assert.assertEquals(expected4,actual4);
+        Assert.assertEquals(expected1,actual1);
     }
 
 }

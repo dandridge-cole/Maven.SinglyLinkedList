@@ -9,17 +9,17 @@ public class SinglyLinkedList <ObjectType extends Comparable/*& Cloneable*/>{
         private ObjectType thePackage;
         private Node next;
 
-        public Node(){
+        Node(){
             this.thePackage=null;
             this.next=null;
         }
 
-        public Node(ObjectType obj){
+        Node(ObjectType obj){
             this.thePackage=obj;
             this.next=null;
         }
 
-        public Node(ObjectType obj,Node next){
+        Node(ObjectType obj,Node next){
             this.thePackage=obj;
             this.next=next;
         }
@@ -41,19 +41,21 @@ public class SinglyLinkedList <ObjectType extends Comparable/*& Cloneable*/>{
         }
     }
 
-    public SinglyLinkedList(ObjectType obj){
+    SinglyLinkedList(ObjectType obj){
+        emptyHead = new Node();
         this.emptyHead.next=new Node(obj);
         this.emptyHead.next.next = null;
         this.last=this.emptyHead.next;
         this.count=1;
     }
 
-    public SinglyLinkedList(){
+    SinglyLinkedList(){
+        emptyHead = new Node();
         this.emptyHead.next=null;
         this.count=0;
     }
 
-    private Node emptyHead=new Node();
+    private Node emptyHead;
    // private Node first;
     private Node last;
     private Integer count;
@@ -162,6 +164,7 @@ public class SinglyLinkedList <ObjectType extends Comparable/*& Cloneable*/>{
     public SinglyLinkedList<ObjectType> copy(){
         return this.slice(0,this.count);
     }
+
     public SinglyLinkedList<ObjectType> slice(Integer start, Integer stop){
         SinglyLinkedList<ObjectType> copy = new SinglyLinkedList<>();
         Node thisNode=this.emptyHead.next;
